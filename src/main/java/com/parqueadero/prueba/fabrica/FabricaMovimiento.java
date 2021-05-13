@@ -2,7 +2,9 @@ package com.parqueadero.prueba.fabrica;
 
 import com.parqueadero.prueba.comando.ComandoMovimiento;
 import com.parqueadero.prueba.modelo.Movimiento;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FabricaMovimiento {
 
     public Movimiento crear(ComandoMovimiento comandoMovimiento){

@@ -20,6 +20,9 @@ public class Movimiento {
         this.factura = factura;
     }
 
+    public Movimiento() {
+    }
+
     public Long getId() {
         return id;
     }
@@ -42,5 +45,11 @@ public class Movimiento {
 
     public Factura getFactura() {
         return factura;
+    }
+
+    public double calcularHoras(){
+        Long horas = this.horaSalida.toEpochDay() - this.horaIngreso.toEpochDay();
+        double horasTotal = horas.doubleValue() /(60 * 60 * 1000);
+        return horasTotal;
     }
 }
