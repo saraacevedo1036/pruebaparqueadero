@@ -30,4 +30,8 @@ public class EntidadVehiculo {
 
     @Column
     private String color;
+
+    @Column
+    private boolean estado;
+
 }

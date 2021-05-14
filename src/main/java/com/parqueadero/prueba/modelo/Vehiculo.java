@@ -6,12 +6,15 @@ public class Vehiculo {
     private TipoVehiculo tipoVehiculo;
     private String placa;
     private String color;
+    private boolean estado;
 
-    public Vehiculo(Long id, TipoVehiculo tipoVehiculo, String placa, String color) {
+
+    public Vehiculo(Long id, TipoVehiculo tipoVehiculo, String placa, String color, boolean estado) {
         this.id = id;
         this.tipoVehiculo = tipoVehiculo;
         this.placa = placa;
         this.color = color;
+        this.estado = estado;
     }
 
     public Long getId() {
@@ -28,5 +31,9 @@ public class Vehiculo {
 
     public String getColor() {
         return color;
+    }
+
+    public boolean isEstado() {
+        return estado;
     }
 }

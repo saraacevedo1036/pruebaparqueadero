@@ -2,15 +2,22 @@ package com.parqueadero.prueba.controlador;
 
 import com.parqueadero.prueba.comando.ComandoMovimiento;
 import com.parqueadero.prueba.manejado.ManejadorMovimiento;
+import com.parqueadero.prueba.repositorio.jpa.RepositorioVehiculoJPA;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
 
 @RestController
 @RequestMapping(value="/movimiento")
 public class ControladorMovimiento {
 
     private final ManejadorMovimiento manejadorMovimiento;
+
+    @Autowired
+    private RepositorioVehiculoJPA repositorioVehiculoJPA;
 
     public ControladorMovimiento(ManejadorMovimiento manejadorMovimiento) {
         this.manejadorMovimiento = manejadorMovimiento;
@@ -22,8 +29,8 @@ public class ControladorMovimiento {
         this.manejadorMovimiento.ejecutarIngresoMovimiento(comandoMovimiento);
     }
 
-    @PutMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public void salidaDeMovimiento(@PathVariable Long id, @RequestBody ComandoMovimiento comandoMovimiento){
-        this.manejadorMovimiento.ejecutarSalidaMovimiento(comandoMovimiento, id);
+    @PutMapping(value = "/{id}/{fechaSalida}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public void salidaDeMovimiento(@PathVariable Long id,@PathVariable String fechaSalida){
+        this.manejadorMovimiento.ejecutarSalidaMovimiento(fechaSalida, id);
     }
 }

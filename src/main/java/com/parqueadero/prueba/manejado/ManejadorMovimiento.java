@@ -8,6 +8,8 @@ import com.parqueadero.prueba.servicio.ServicioSalidaDeVehiculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
+
 @Component
 public class ManejadorMovimiento {
 
@@ -27,9 +29,7 @@ public class ManejadorMovimiento {
         servicioIngresarVehiculo.ejecutar(comandoMovimiento);
     }
 
-    public void ejecutarSalidaMovimiento(ComandoMovimiento comandoMovimiento, Long id){
-        comandoMovimiento.setFactura(servicioGenerarFactura.generarFactura(comandoMovimiento));
-        comandoMovimiento.setId(id);
-        servicioSalidaDeVehiculo.ejecutar(comandoMovimiento);
+    public void ejecutarSalidaMovimiento(String fechaSalida, Long id){
+        servicioSalidaDeVehiculo.ejecutar(fechaSalida, id);
     }
 }

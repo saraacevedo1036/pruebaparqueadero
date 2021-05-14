@@ -16,4 +16,5 @@ public class ComandoVehiculo {
     private TipoVehiculo tipoVehiculo;
     private String placa;
     private String color;
+    private boolean estado;
 }

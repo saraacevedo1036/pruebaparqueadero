@@ -2,6 +2,7 @@ package com.parqueadero.prueba.servicio;
 
 import com.parqueadero.prueba.comando.ComandoFactura;
 import com.parqueadero.prueba.comando.ComandoMovimiento;
+import com.parqueadero.prueba.entidad.EntidadMovimiento;
 import com.parqueadero.prueba.excepcion.ExcepcionFechaInvalida;
 import com.parqueadero.prueba.fabrica.FabricaFactura;
 import com.parqueadero.prueba.fabrica.FabricaMovimiento;
@@ -23,13 +24,12 @@ public class ServicioGenerarFactura {
         this.fabricaMovimiento = fabricaMovimiento;
     }
 
-    public Factura generarFactura(ComandoMovimiento movimiento){
+    public Factura generarFactura(EntidadMovimiento movimiento){
         if(movimiento.getHoraSalida().isBefore(movimiento.getHoraIngreso()) || movimiento.getHoraSalida() == null || "".equals(movimiento.getHoraSalida())){
              throw new ExcepcionFechaInvalida(FECHA_INVALIDA);
         }
         ComandoFactura comandoFactura = new ComandoFactura();
-        Movimiento movimientos = this.fabricaMovimiento.crear(movimiento);
-        comandoFactura.setValorTotal(servicioCalcularValorFactura.calcularValorDeFacturaSegunTarifa(movimientos));
+        comandoFactura.setValorTotal(servicioCalcularValorFactura.calcularValorDeFacturaSegunTarifa(movimiento));
         Factura factura = this.fabricaFactura.crear(comandoFactura);
         return factura;
     }
