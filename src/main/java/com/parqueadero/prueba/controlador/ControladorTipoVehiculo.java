@@ -20,7 +20,7 @@ public class ControladorTipoVehiculo {
         this.manejadorTipoVehiculo = manejadorTipoVehiculo;
     }
 
-    @GetMapping
+    @GetMapping()
     public List<TipoVehiculoDTO> listar(){
         return manejadorTipoVehiculo.ejecutar();
     }

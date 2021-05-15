@@ -1,10 +1,8 @@
 package com.parqueadero.prueba.servicio;
 
-import com.parqueadero.prueba.comando.ComandoMovimiento;
 import com.parqueadero.prueba.convertidor.ConvertidorFactura;
 import com.parqueadero.prueba.entidad.EntidadMovimiento;
 import com.parqueadero.prueba.excepcion.ExcepcionVehiculoExistente;
-import com.parqueadero.prueba.fabrica.FabricaMovimiento;
 import com.parqueadero.prueba.repositorio.interfazimpl.RepositorioMovimiento;
 import com.parqueadero.prueba.repositorio.jpa.RepositorioVehiculoJPA;
 import org.springframework.stereotype.Service;
