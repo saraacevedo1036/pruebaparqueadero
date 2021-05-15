@@ -2,15 +2,17 @@ package com.parqueadero.prueba.controlador;
 
 import com.parqueadero.prueba.comando.ComandoMovimiento;
 import com.parqueadero.prueba.manejado.ManejadorMovimiento;
+import com.parqueadero.prueba.modelo.Movimiento;
 import com.parqueadero.prueba.repositorio.jpa.RepositorioVehiculoJPA;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDate;
+import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(value="/movimiento")
 public class ControladorMovimiento {
 
@@ -32,5 +34,10 @@ public class ControladorMovimiento {
     @PutMapping(value = "/{id}/{fechaSalida}", produces = MediaType.APPLICATION_JSON_VALUE)
     public void salidaDeMovimiento(@PathVariable Long id,@PathVariable String fechaSalida){
         this.manejadorMovimiento.ejecutarSalidaMovimiento(fechaSalida, id);
+    }
+
+    @GetMapping
+    public List<Movimiento> listar(){
+        return manejadorMovimiento.ejecutar();
     }
 }

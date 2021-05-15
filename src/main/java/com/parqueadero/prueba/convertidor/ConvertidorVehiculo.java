@@ -11,4 +11,8 @@ public class ConvertidorVehiculo {
         ModelMapper modelMapper = new ModelMapper();
         return new EntidadVehiculo(vehiculo.getId(), modelMapper.map(vehiculo.getTipoVehiculo(), EntidadTipoVehiculo.class), vehiculo.getPlaca(), vehiculo.getColor(), vehiculo.isEstado());
     }
+
+    public static Vehiculo convertirDeEntidadAModelo(EntidadVehiculo entidadVehiculo){
+        return new Vehiculo(entidadVehiculo.getId(),ConvertidorTipoVehiculo.convertirDeEntidadAModelo(entidadVehiculo.getEntidadTipoVehiculo()),entidadVehiculo.getPlaca(), entidadVehiculo.getColor(), entidadVehiculo.isEstado());
+    }
 }

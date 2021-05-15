@@ -1,17 +1,14 @@
-package com.parqueadero.prueba.comando;
+package com.parqueadero.prueba.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
-public class ComandoTarifa {
+public class TipoVehiculoDTO {
 
     private Long id;
-    private double valor;
     private String descripcion;
 }

@@ -1,5 +1,10 @@
 package com.parqueadero.prueba.modelo;
 
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Setter
+@NoArgsConstructor
 public class Tarifa {
 
     private Long id;

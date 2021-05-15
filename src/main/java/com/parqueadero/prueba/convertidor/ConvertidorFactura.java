@@ -12,4 +12,12 @@ public class ConvertidorFactura {
             return new EntidadFactura(factura.getId(),factura.getValorTotal());
         }
     }
+
+    public static Factura convertirDeEntidadAModelo(EntidadFactura entidadFactura){
+        if(entidadFactura == null){
+            return null;
+        }else{
+            return new Factura(entidadFactura.getId(),entidadFactura.getValorTotal());
+        }
+    }
 }

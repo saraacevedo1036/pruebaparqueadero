@@ -1,7 +1,10 @@
 package com.parqueadero.prueba.modelo;
 
+import lombok.Setter;
+
 import java.time.LocalDate;
 
+@Setter
 public class Movimiento {
 
     private Long id;
@@ -45,11 +48,5 @@ public class Movimiento {
 
     public Factura getFactura() {
         return factura;
-    }
-
-    public double calcularHoras(){
-        Long horas = this.horaSalida.toEpochDay() - this.horaIngreso.toEpochDay();
-        double horasTotal = horas.doubleValue() /(60 * 60 * 1000);
-        return horasTotal;
     }
 }
